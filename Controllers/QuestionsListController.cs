@@ -6,25 +6,23 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Cors;
-using FirstQnAAPI;
-using FirstQnAAPI.Data;
+using QuestionBankApp.Data;
 
-namespace FirstQnAAPI.Controllers
+namespace QuestionBankApp.Controllers
 {
-    
     [Route("api/[controller]")]
     [ApiController]
     [EnableCors]
-    public class QuestionsListController(FirstQnAAPIContext context) : ControllerBase
+    public class QuestionsListController(QuestionBankAppContext context) : ControllerBase
     {
-        private readonly FirstQnAAPIContext _context = context;
+        private readonly QuestionBankAppContext _context = context;
 
         // GET: api/QuestionsList
         [HttpGet]
         public ActionResult<List<QuestionList>> GetQuestionsList()
         {
             List<QuestionList> qmList = [];
-            var questionList = _context.QBMaster.ToList();
+            var questionList = _context.QuestionBankMaster.ToList();
             foreach (QBMaster a in questionList)
             {
                 List<string> choices = [.. _context.ChoicesMaster.Where<ChoicesMaster>(

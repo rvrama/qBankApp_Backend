@@ -8195,9 +8195,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dell\\source\\repos\\FirstQnAAPI\\FirstQnAAPI\\FirstQnAAPI.csproj",
-      "projectName": "FirstQnAAPI",
-      "projectPath": "C:\\Users\\Dell\\source\\repos\\FirstQnAAPI\\FirstQnAAPI\\FirstQnAAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Dell\\source\\repos\\FirstQnAAPI\\FirstQnAAPI\\QuestionBankApp.csproj",
+      "projectName": "QuestionBankApp",
+      "projectPath": "C:\\Users\\Dell\\source\\repos\\FirstQnAAPI\\FirstQnAAPI\\QuestionBankApp.csproj",
       "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Dell\\source\\repos\\FirstQnAAPI\\FirstQnAAPI\\obj\\",
       "projectStyle": "PackageReference",

@@ -1,0 +1,15 @@
+@QuestionBankApp_HostAddress = https://localhost:7189
+
+GET {{QuestionBankApp_HostAddress}}/api/group/1
+Accept: application/json
+
+###
+
+
+GET {{QuestionBankApp_HostAddress}}/api/Questions/
+Accept: application/json
+
+
+GET {{QuestionBankApp_HostAddress}}/api/questionslist
+
+###

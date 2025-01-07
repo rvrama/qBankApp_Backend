@@ -5,20 +5,20 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using FirstQnAAPI.Data;
 using Microsoft.AspNetCore.Cors;
 using NuGet.Packaging;
+using QuestionBankApp.Data;
 
-namespace FirstQnAAPI.Controllers
+namespace QuestionBankApp.Controllers
 {
     [EnableCors]
     [Route("api/[controller]")]
     [ApiController]
     public class QResultController : ControllerBase
     {
-        private readonly FirstQnAAPIContext _context;
+        private readonly QuestionBankAppContext _context;
 
-        public QResultController(FirstQnAAPIContext context)
+        public QResultController(QuestionBankAppContext context)
         {
             _context = context;
         }
@@ -34,7 +34,7 @@ namespace FirstQnAAPI.Controllers
             //     .Select(a => new { a.q.UserId, a.q.GroupId, a.q.Score, a.q.TimeSpent, a.qwr.QuestionId, a.qwr.AnswerChoiceId, a.qwr.SelectedChoiceId })
             //     .ToList();
 
-            List<QResult> qrList = [.. _context.QResult.Where<QResult>(a => a.UserId == userId)];
+            List<QResult> qrList = [.. _context.QResults.Where<QResult>(a => a.UserId == userId)];
 
             List<UserResult> userResultsArray = new List<UserResult>();
 
@@ -61,7 +61,7 @@ namespace FirstQnAAPI.Controllers
 
         private List<QuestionWiseResult> GetQuestionWiseResults(string userId, int groupId, int attemptId)
         {
-            List<QWiseResult> res = _context.QWiseResult.Where<QWiseResult>(q => q.UserId == userId
+            List<QWiseResult> res = _context.QuestionwiseResults.Where<QWiseResult>(q => q.UserId == userId
                                              && q.GroupId == groupId && q.AttemptId == attemptId).ToList();
             List<QuestionWiseResult> qw = new List<QuestionWiseResult>();
             foreach (var n in res)
@@ -84,7 +84,7 @@ namespace FirstQnAAPI.Controllers
         {
             var local_userId = results.UserId;
             var local_groupId = results.GroupId;
-            var local_attemptId = _context.QResult.Where(a => a.UserId == results.UserId
+            var local_attemptId = _context.QResults.Where(a => a.UserId == results.UserId
                                           && a.GroupId== results.GroupId).Count() + 1;
 
                     QResult qr = new QResult() {
@@ -95,7 +95,7 @@ namespace FirstQnAAPI.Controllers
                         TimeSpent = results.TimeSpent
                     };
 
-                    _context.QResult.Add(qr);
+                    _context.QResults.Add(qr);
 
                     List<QWiseResult> qw = new List<QWiseResult>();
                     
@@ -110,53 +110,14 @@ namespace FirstQnAAPI.Controllers
                     });
                     }
 
-                _context.QWiseResult.AddRange(qw);
+                _context.QuestionwiseResults.AddRange(qw);
 
                 _context.SaveChanges();
-             //   }
-
-            // else {
-
-            //         QuestionWiseResult[] qwResult = new QuestionWiseResult[qWiseRessultExist.Count];
-            //         var index = 0;
-            //         foreach (var a in qWiseRessultExist){
-            //             qwResult[index] = 
-            //             new QuestionWiseResult {
-            //                 id=a.QuestionId,
-            //                 answer=a.AnswerChoiceId,
-            //                 selected=a.SelectedChoiceId
-            //             };
-            //             index++;
-            //         }
-
-            //         results = new UserResult() {
-            //             GroupId = qResultExist.GroupId,
-            //             //id = 1, //attemptId hardcoded for now
-            //             UserId = qResultExist.UserId,
-            //             Score = qResultExist.Score,
-            //             TimeSpent = qResultExist.TimeSpent,
-            //             Results = qwResult
-            //         };             
-
-            // }
+         
         
           return CreatedAtAction("GetQResult", new { userId = results.UserId }, results);
         }
 
-        //// DELETE: api/Questions/5
-        //[HttpDelete("{id}")]
-        //public async Task<IActionResult> DeleteQuestion(int id)
-        //{
-        //    var question = await _context.Question.FindAsync(id);
-        //    if (question == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    _context.Question.Remove(question);
-        //    await _context.SaveChangesAsync();
-
-        //    return NoContent();
-        //}
+     
     }
 }

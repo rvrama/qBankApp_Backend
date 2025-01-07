@@ -1,9 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using FirstQnAAPI.Data;
+using QuestionBankApp.Data;
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<FirstQnAAPIContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("FirstQnAAPIContext") ?? throw new InvalidOperationException("Connection string 'FirstQnAAPIContext' not found.")));
+builder.Services.AddDbContext<QuestionBankAppContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("AppContext") ?? throw new InvalidOperationException("Connection string 'FirstQnAAPIContext' not found.")));
 
 
 //Add Cors
