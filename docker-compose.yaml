@@ -1,0 +1,18 @@
+# version: "3.9"  # optional since v1.27.0
+services:
+  web_api:
+    image: newapi:1
+    container_name: testweb_api_app
+    ports:
+      - 8000:5000
+  sqlserver_host: #this must be the server name in the connection string of the application to connect and work :)
+    image: "mcr.microsoft.com/mssql/server"
+    container_name: sqlserver
+    ports: # not actually needed, because the two services are on the same network
+      - "1433:1433" 
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Test@123
+      - TRUSTSERVERCERTIFICATE=true
+    volumes:
+      - C:\Users\Dell\DockerVolumes\sqlserver:/var/opt/mssql/data
