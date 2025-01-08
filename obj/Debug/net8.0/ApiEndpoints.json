@@ -1,6 +1,6 @@
 [
   {
-    "ContainingType": "FirstQnAAPI.Controllers.GroupController",
+    "ContainingType": "QuestionBankApp.Controllers.GroupController",
     "Method": "GetGroup",
     "RelativePath": "api/Group",
     "HttpMethod": "GET",
@@ -9,7 +9,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[FirstQnAAPI.Data.Group, FirstQnAAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[QuestionBankApp.Data.GroupMaster, QuestionBankApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -20,7 +20,7 @@
     ]
   },
   {
-    "ContainingType": "FirstQnAAPI.Controllers.GroupController",
+    "ContainingType": "QuestionBankApp.Controllers.GroupController",
     "Method": "GetGroup",
     "RelativePath": "api/Group/{id}",
     "HttpMethod": "GET",
@@ -35,7 +35,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "FirstQnAAPI.Data.Group",
+        "Type": "QuestionBankApp.Data.GroupMaster",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -46,124 +46,7 @@
     ]
   },
   {
-    "ContainingType": "FirstQnAAPI.Controllers.QnAController",
-    "Method": "Get",
-    "RelativePath": "api/QnA",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "FirstQnAAPI.Controllers.QnAController",
-    "Method": "Post",
-    "RelativePath": "api/QnA",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "value",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "FirstQnAAPI.Controllers.QnAController",
-    "Method": "Get",
-    "RelativePath": "api/QnA/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.String",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "FirstQnAAPI.Controllers.QnAController",
-    "Method": "Put",
-    "RelativePath": "api/QnA/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "value",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "FirstQnAAPI.Controllers.QnAController",
-    "Method": "Delete",
-    "RelativePath": "api/QnA/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "FirstQnAAPI.Controllers.QResultController",
+    "ContainingType": "QuestionBankApp.Controllers.QResultController",
     "Method": "GetQResult",
     "RelativePath": "api/QResult",
     "HttpMethod": "GET",
@@ -178,7 +61,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "FirstQnAAPI.Data.UserResult",
+        "Type": "System.Collections.Generic.List\u00601[[QuestionBankApp.Data.UserResult, QuestionBankApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -189,7 +72,7 @@
     ]
   },
   {
-    "ContainingType": "FirstQnAAPI.Controllers.QResultController",
+    "ContainingType": "QuestionBankApp.Controllers.QResultController",
     "Method": "PostQResult",
     "RelativePath": "api/QResult",
     "HttpMethod": "POST",
@@ -198,13 +81,13 @@
     "Parameters": [
       {
         "Name": "results",
-        "Type": "FirstQnAAPI.Data.UserResult",
+        "Type": "QuestionBankApp.Data.UserResult",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "FirstQnAAPI.Data.UserResult",
+        "Type": "QuestionBankApp.Data.UserResult",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -215,7 +98,7 @@
     ]
   },
   {
-    "ContainingType": "FirstQnAAPI.Controllers.QuestionsListController",
+    "ContainingType": "QuestionBankApp.Controllers.QuestionsListController",
     "Method": "GetQuestionsList",
     "RelativePath": "api/QuestionsList",
     "HttpMethod": "GET",
@@ -224,7 +107,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[FirstQnAAPI.Data.QuestionList, FirstQnAAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[QuestionBankApp.Data.QuestionList, QuestionBankApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

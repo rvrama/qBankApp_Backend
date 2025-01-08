@@ -17,12 +17,13 @@ namespace QuestionBankApp.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ChoicesMaster>().ToTable("ChoicesMaster")
-               .HasNoKey();
+            modelBuilder.Entity<ChoicesMaster>().ToTable("ChoicesMaster");
             modelBuilder.Entity<QBMaster>().ToTable("QBMaster");
             modelBuilder.Entity<GroupMaster>().ToTable("GroupMaster");
             modelBuilder.Entity<QResult>().ToTable("QResult");
             modelBuilder.Entity<QWiseResult>().ToTable("QWiseResult");
+            modelBuilder.Entity<QuestionList>().ToView("QuestionAndChoicesView")
+                .HasNoKey();
         }
         public DbSet<GroupMaster> GroupMaster { get; set; }
 
@@ -33,6 +34,9 @@ namespace QuestionBankApp.Data
         public DbSet<QResult> QResults {get; set;}
 
         public DbSet<QWiseResult> QuestionwiseResults {get; set;}
+
+        //This is to test SQL View code call.
+        public DbSet<QuestionList> QuestionLists { get; set; }
 
         public UserResult UserResult {get; set;}
 
@@ -54,7 +58,7 @@ namespace QuestionBankApp.Data
         public int GroupId { get; set; }
 
         [Required]
-        public int AnswerChoiceId {get; set;}
+        public required string AnswerChoiceId {get; set;}
 
         [Required]
         public int ChoiceType { get; set; }
@@ -73,8 +77,11 @@ namespace QuestionBankApp.Data
 
     }
 
+    [PrimaryKey("Id")]
     public class ChoicesMaster
     {
+        public int Id { get; set; }
+
         [Required]
         public int QuestionId {  get; set; }
 
@@ -116,9 +123,9 @@ namespace QuestionBankApp.Data
 
         public int QuestionId {get; set;}
 
-        public int AnswerChoiceId {get; set;}
+        public string AnswerChoiceId {get; set;}
 
-        public int SelectedChoiceId {get; set;}
+        public string SelectedChoiceId {get; set;}
 
         public int AttemptId {get; set;}
     }
@@ -139,7 +146,6 @@ namespace QuestionBankApp.Data
             public int Score { get; set; }
 
             public int AttemptId {get; set;}
-      //  public QResult Result {get; set;}
         public QuestionWiseResult[] Results {get; set;}   
     }
 
@@ -148,9 +154,9 @@ namespace QuestionBankApp.Data
    {
      public int id {get; set;}
 
-        public int answer {get; set;}
+        public string answer {get; set;}
 
-        public int selected {get; set;}
+        public string selected {get; set;}
    
    }
 
@@ -169,17 +175,11 @@ namespace QuestionBankApp.Data
 
         public int choiceType {get; set; }
  
-        public int answerChoiceId {get; set;}
+        public string answerChoiceId {get; set;}
 
     }
 
-    // public class ChoiceModel{
-    //     public int choiceId;
-
-    //     [Required]
-    //     public required string choice;
-    // }
-
+  
 #endregion
 
 }

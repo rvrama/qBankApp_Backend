@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("QuestionBankApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2ef67125bb311298e78da0612a29d8cdf2748071")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d70888f23463bf381fdac1d9988b203be3b99662")]
 [assembly: System.Reflection.AssemblyProductAttribute("QuestionBankApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("QuestionBankApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
